@@ -1,0 +1,150 @@
+{
+  "name": "SACO — Popup Updater (Telegram)",
+  "nodes": [
+    {
+      "parameters": {
+        "chatId": "={{ $('Priprav nový obsah').first().json.chatId }}",
+        "text": "={{ $('Priprav nový obsah').first().json.reply }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "dbb023d6-2ee7-464d-8981-899a2c68cea5",
+      "name": "Odošli potvrdenie",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [1808, 656],
+      "webhookId": "fb58cc39-6896-4408-a6d4-c5f9d5b3c6a2",
+      "credentials": {
+        "telegramApi": {
+          "id": "lm3ZbZv5mf40SK4l",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "edit",
+        "owner": "CaptainBrainCell",
+        "repository": "saco",
+        "filePath": "index.html",
+        "fileContent": "={{ $json.updatedContent }}",
+        "commitMessage": "={{ $json.commitMessage }}",
+        "additionalParameters": {
+          "branch": {}
+        }
+      },
+      "id": "1bd5c31a-5973-4d0b-8477-ae1bef242e18",
+      "name": "Aktualizuj index.html",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [1584, 656],
+      "webhookId": "856bc39e-f250-4a3d-8629-cc986ab27637",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "EYjxyOOPAKMU0gw5",
+          "name": "GitHub OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const parsed = $('Spracuj správu').first().json;\nconst file = $('Stiahni index.html').first().json;\n\n// HTTP Request vrati content ako base64 string\nconst raw = file.content ?? null;\n\nif (!raw) {\n  return [{ json: {\n    error: true,\n    chatId: parsed.chatId,\n    reply: '❌ Súbor sa nepodarilo stiahnuť. Kluce: ' + Object.keys(file).join(', ')\n  }}];\n}\n\n// Dekoduj base64\nconst current = Buffer.from(raw.replace(/\\n/g, ''), 'base64').toString('utf8');\n\nconst newBlock = `var NEW_COURSE = {\\n  enabled: true,\\n\\n  /* Skupina kurzu — zobrazí sa nad nadpisom */\\n  type: \"${parsed.type}\",\\n\\n  /* Nadpis popupu */\\n  title: \"${parsed.title}\",\\n\\n  /* Dátum — tučné modré písmo pod nadpisom */\\n  date: \"${parsed.date}\",\\n\\n  /* Krátky popis */\\n  description: \"${parsed.description}\"\\n};`;\n\nconst updated = current.replace(/var NEW_COURSE = \\{[\\s\\S]*?\\};/, newBlock);\n\nif (updated === current) {\n  return [{ json: {\n    error: true,\n    chatId: parsed.chatId,\n    reply: '❌ NEW_COURSE blok sa nenašiel v súbore.'\n  }}];\n}\n\nreturn [{ json: {\n  error: false,\n  chatId: parsed.chatId,\n  sha: file.sha,\n  updatedContent: updated,\n  commitMessage: `Popup: ${parsed.type} — ${parsed.date}`,\n  reply: `✅ Popup aktualizovaný!\\n\\n*${parsed.type}*\\n${parsed.date}\\n${parsed.description}\\n\\nVercel redeployuje za ~30 sek.`\n}}];"
+      },
+      "id": "fc32c262-2dae-470c-8fa0-04a7be9250af",
+      "name": "Priprav nový obsah",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1376, 656]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/CaptainBrainCell/saco/contents/index.html",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "githubOAuth2Api",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github.v3+json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1450744b-cd20-480a-9889-43f0967b339b",
+      "name": "Stiahni index.html",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [1152, 656],
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "EYjxyOOPAKMU0gw5",
+          "name": "GitHub OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const message = ($input.first().json?.message?.text || '').trim();\nconst chatId  = $input.first().json?.message?.chat?.id;\n\nconst lines = message.split('\\n').map(l => l.trim()).filter(l => l);\n\nif (lines.length < 2) {\n  return [{ json: {\n    error: true,\n    chatId,\n    reply: '❌ Nesprávny formát. Pošli:\\nSkupina B\\n15. jún 2026\\nPopis kurzu'\n  }}];\n}\n\nreturn [{ json: {\n  error: false,\n  chatId,\n  type: lines[0],\n  date: lines[1],\n  description: lines[2] || '',\n  title: `Otvárame nový kurz ${lines[0].toLowerCase()}`\n}}];"
+      },
+      "id": "2dce111a-1c54-43eb-8d11-3fe7a2d925bc",
+      "name": "Spracuj správu",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [928, 656]
+    },
+    {
+      "parameters": {
+        "updates": ["message"],
+        "additionalFields": {}
+      },
+      "id": "e2af5751-f05d-47c9-b586-a64c917fdb18",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1,
+      "position": [704, 656],
+      "webhookId": "saco-telegram-trigger",
+      "credentials": {
+        "telegramApi": {
+          "id": "lm3ZbZv5mf40SK4l",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Aktualizuj index.html": {
+      "main": [[{ "node": "Odošli potvrdenie", "type": "main", "index": 0 }]]
+    },
+    "Priprav nový obsah": {
+      "main": [[{ "node": "Aktualizuj index.html", "type": "main", "index": 0 }]]
+    },
+    "Stiahni index.html": {
+      "main": [[{ "node": "Priprav nový obsah", "type": "main", "index": 0 }]]
+    },
+    "Spracuj správu": {
+      "main": [[{ "node": "Stiahni index.html", "type": "main", "index": 0 }]]
+    },
+    "Telegram Trigger": {
+      "main": [[{ "node": "Spracuj správu", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "4f621a87-3dba-4e83-8f6c-b2a2b6dd3ad9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6238ed166cdb50813bd996246aae32dd7233c64010d5d664a6e48082bdc2b8ee"
+  },
+  "id": "tqx6Oh8AQklJcCFr",
+  "tags": []
+}
