@@ -750,15 +750,31 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 </div>
 
 <script>
+/* ============================================================
+   POPUP — NOVÝ KURZ  (edituj len túto časť)
+   ------------------------------------------------------------
+   enabled: true  = popup sa zobrazí + zelené tlačidlo v nav
+   enabled: false = popup je skrytý, nav tlačidlo tiež
+   ============================================================ */
+var NEW_COURSE = {
+  enabled: true,
+
+  /* Skupina kurzu — zobrazí sa nad nadpisom */
+  type: "Skupina B",
+
+  /* Nadpis popupu */
+  title: "Otvárame nový kurz skupiny B",
+
+  /* Dátum — tučné modré písmo pod nadpisom */
+  date: "15. november 2025",
+
+  /* Krátky popis */
+  description: "Večerný kurz, 2× týždenne, kapacita 12 miest."
+};
+/* ============================================================ */
+
 (function(){
   "use strict";
-  var NEW_COURSE = {
-    enabled: true,
-    type: "Skupina B",
-    title: "Otvárame nový kurz skupiny B",
-    date: "15. november 2025",
-    description: "Večerný kurz, 2× týždenne, kapacita 12 miest."
-  };
   function $(s,c){return (c||document).querySelector(s);}
   function on(el,ev,fn){el && el.addEventListener(ev,fn);}
   var nav=$("#nav"), burger=$("#navBurger");
