@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="sk"><head><meta charset="utf-8"><title>Components — Popup modal</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body { margin: 0; padding: 24px; min-height: 360px; background: linear-gradient(rgba(15,15,20,.5),rgba(15,15,20,.5)), repeating-linear-gradient(45deg, #f5f5f1, #f5f5f1 8px, #ebebe6 8px, #ebebe6 16px); display: flex; align-items: center; justify-content: center; }
+.modal { width: 460px; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.18); }
+.head { background: var(--bg-dark); color: var(--text-on-dark); padding: 18px 22px; display: flex; align-items: center; gap: 12px; min-height: 80px; box-sizing: border-box; }
+.body-c { padding: 22px; }
+.date { font-family: var(--font-heading); font-weight: 700; font-size: 22px; color: var(--text); margin: 4px 0 8px; font-feature-settings: "tnum"; }
+.desc { font-family: var(--font-body); font-size: 15px; color: var(--text-muted); margin: 0 0 18px; }
+.row { display: flex; gap: 10px; }
+.close { margin-left: auto; background: transparent; border: 0; color: var(--text-on-dark); font-size: 20px; cursor: pointer; }
+</style></head>
+<body>
+<div class="modal">
+  <div class="head">
+    <span class="badge-new"><span class="pulse"></span>Nový kurz</span>
+    <button class="close" aria-label="Zavrieť">×</button>
+  </div>
+  <div class="body-c">
+    <div class="eyebrow">Skupina B</div>
+    <hr class="road-line-h short"/>
+    <div class="date">15. november 2025</div>
+    <p class="desc">Večerný kurz, 2× týždenne, kapacita 12 miest.</p>
+    <div class="row">
+      <button class="btn btn-primary">Mám záujem</button>
+      <button class="btn btn-ghost">Možno neskôr</button>
+    </div>
+  </div>
+</div>
+</body></html>

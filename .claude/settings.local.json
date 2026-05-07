@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Acer\\\\Desktop\\\\weby\\\\saco\" | Where-Object { $_.Name -ne \"design_extracted\" } | Select-Object Name, LastWriteTime)"
+    ]
+  }
+}

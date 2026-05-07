@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" width="220" height="80">
+  
+  <text x="0" y="36" class="word">SAC<tspan>O</tspan></text>
+  <circle cx="200" cy="22" r="4" class="dot"></circle>
+  <g>
+    <rect x="0" y="46" width="14" height="3" fill="#F59E0B"></rect>
+    <rect x="20" y="46" width="14" height="3" fill="#F59E0B"></rect>
+    <rect x="40" y="46" width="14" height="3" fill="#F59E0B"></rect>
+  </g>
+  <text x="0" y="68" class="sub">AUTOŠKOLA</text>
+</svg>

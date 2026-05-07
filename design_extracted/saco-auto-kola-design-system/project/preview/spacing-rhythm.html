@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="sk"><head><meta charset="utf-8"><title>Spacing — Section rhythm</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body { margin: 0; padding: 24px; background: var(--bg-soft); }
+.frame { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 32px; position: relative; }
+.tag { position: absolute; right: 14px; font-family: var(--font-body); font-size: 10px; color: var(--text-muted); font-feature-settings: "tnum"; }
+.h2demo { font-family: var(--font-heading); font-weight: 700; font-size: 32px; line-height: 1.15; color: var(--text); margin: 12px 0 0; }
+.sub { font-family: var(--font-body); font-size: 17px; color: var(--text-muted); margin: 24px 0 0; }
+.pad { height: 48px; border-radius: 6px; background: repeating-linear-gradient(45deg, #F5F5F1, #F5F5F1 6px, #fff 6px, #fff 12px); margin-top: 0; }
+</style></head>
+<body>
+<div class="frame">
+  <div class="eyebrow">Prečo my</div>
+  <span class="tag">↕ 12px</span>
+  <hr class="road-line-h short"/>
+  <span class="tag" style="top: 64px;">↕ 16px</span>
+  <div class="h2demo">Dve dekády skúseností</div>
+  <span class="tag" style="top: 130px;">↕ 24px</span>
+  <p class="sub">Sekcia padding 64–120px · gap 24/32px · container 1200px</p>
+  <span class="tag" style="top: 200px;">↕ 48–64px</span>
+  <div class="pad"></div>
+</div>
+</body></html>

@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SACO Autoškola — Žiar nad Hronom · Vodičák, ktorý ti sadne</title>
+<meta name="description" content="SACO Autoškola v Žiari nad Hronom. Vodičák skupiny B, motocykle A, A2, A1. Termíny aj cez víkend, splátky bez navýšenia, individuálny prístup. Od roku 2003.">
+<meta property="og:title" content="SACO Autoškola — Žiar nad Hronom">
+<meta property="og:description" content="Rodinná autoškola v Žiari nad Hronom. Skupina B, motocykle A, A2, A1. Od roku 2003.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sk_SK">
+<meta name="theme-color" content="#0E1B2E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+
+<style>
+:root{
+  --bg:#FFFFFF; --bg-soft:#F5F5F1; --bg-dark:#0E1B2E; --bg-dark-2:#14253D;
+  --border:#E5E5DF; --border-hover:#D4D4CE; --border-on-dark:rgba(255,255,255,.08);
+  --text:#0F0F14; --text-muted:#6B6B73;
+  --text-on-dark:#F5F5F1; --text-on-dark-mut:#8FA3BD;
+  --primary:#2563EB; --primary-hover:#1D4ED8; --primary-light:#DBEAFE;
+  --accent:#F59E0B; --accent-hover:#D97706; --success:#059669;
+  --font-h:"Plus Jakarta Sans",system-ui,sans-serif;
+  --font-b:"Inter",system-ui,sans-serif;
+  --container:1200px; --pad:clamp(20px,4vw,40px); --section-pad:clamp(64px,8vw,120px);
+  --r-sm:10px; --r-md:16px; --r-pill:999px;
+  --t-hover:200ms ease-out; --t-btn:150ms ease-out; --t-fade:500ms ease-out;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--font-b);font-size:1.0625rem;line-height:1.65;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:var(--primary);text-decoration:none;transition:color var(--t-btn)}
+a:hover{color:var(--primary-hover)}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
+.section-dark :focus-visible{outline-color:var(--accent)}
+h1,h2,h3,h4{font-family:var(--font-h);margin:0;text-wrap:balance;color:inherit}
+h1{font-weight:800;font-size:clamp(3rem,7vw,5.5rem);line-height:1.05;letter-spacing:-.02em}
+h2{font-weight:700;font-size:clamp(2rem,4vw,3rem);line-height:1.15;letter-spacing:-.01em}
+h3{font-weight:700;font-size:1.5rem;line-height:1.25}
+h4{font-weight:600;font-size:1.25rem;line-height:1.35}
+p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
+.tnum,time,.stat-num{font-feature-settings:"tnum" 1,"lnum" 1}
+.container{width:100%;max-width:var(--container);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.section{padding-top:var(--section-pad);padding-bottom:var(--section-pad)}
+.section-soft{background:var(--bg-soft)}
+.section-dark{background:var(--bg-dark);color:var(--text-on-dark)}
+.section-dark p{color:var(--text-on-dark-mut)}
+.text-muted{color:var(--text-muted)}
+.section-dark .text-muted{color:var(--text-on-dark-mut)}
+.eyebrow{font-family:var(--font-h);font-weight:700;font-size:.875rem;text-transform:uppercase;letter-spacing:.12em;color:var(--primary);margin:0 0 12px}
+.eyebrow.on-dark{color:var(--accent)}
+.road-line-h{display:block;height:3px;border:0;margin:0;background-image:linear-gradient(90deg,var(--accent) 60%,transparent 60%);background-size:24px 3px;background-repeat:repeat-x}
+.road-line-h.short{width:40px}.road-line-h.medium{width:80px}.road-line-h.long{width:120px}.road-line-h.full{width:100%}
+.road-line-v{width:3px;background-image:linear-gradient(180deg,var(--accent) 60%,transparent 60%);background-size:3px 24px;background-repeat:repeat-y}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-h);font-weight:600;font-size:.95rem;line-height:1;padding:14px 28px;border-radius:var(--r-sm);border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:background-color var(--t-btn),border-color var(--t-btn),color var(--t-btn)}
+.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-hover);color:#fff}
+.btn-accent{background:var(--accent);color:var(--bg-dark)}.btn-accent:hover{background:var(--accent-hover);color:var(--bg-dark)}
+.btn-ghost{background:transparent;border-color:var(--border);color:var(--text)}.btn-ghost:hover{background:var(--bg-soft)}
+.btn-ghost.on-dark{border-color:rgba(255,255,255,.30);color:var(--text-on-dark)}.btn-ghost.on-dark:hover{background:rgba(255,255,255,.10)}
+.label{display:block;font-family:var(--font-b);font-size:.875rem;font-weight:500;color:var(--text);margin:0 0 6px}.label.on-dark{color:var(--text-on-dark)}
+.input,.textarea,.select{width:100%;font-family:var(--font-b);font-size:16px;font-weight:400;color:var(--text);background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:12px 16px;transition:border-color var(--t-btn)}
+.textarea{resize:vertical;min-height:96px}
+.input:focus,.textarea:focus,.select:focus{outline:none;border-color:var(--primary)}
+.input::placeholder,.textarea::placeholder{color:var(--text-muted)}
+.input.on-dark,.textarea.on-dark,.select.on-dark{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18);color:var(--text-on-dark)}
+.input.on-dark::placeholder,.textarea.on-dark::placeholder{color:var(--text-on-dark-mut)}
+.input.on-dark:focus,.textarea.on-dark:focus,.select.on-dark:focus{border-color:var(--accent);background:rgba(255,255,255,.10)}
+.pill{display:inline-flex;align-items:center;gap:6px;background:var(--primary-light);color:var(--primary);font-family:var(--font-b);font-weight:600;font-size:.8rem;padding:4px 12px;border-radius:var(--r-pill);line-height:1.4}
+.badge-new{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--bg-dark);font-family:var(--font-h);font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;padding:6px 12px;border-radius:var(--r-pill)}
+.badge-new .pulse{width:8px;height:8px;border-radius:999px;background:var(--success);position:relative}
+.badge-new .pulse::after{content:"";position:absolute;inset:0;border-radius:999px;background:var(--success);animation:saco-pulse 1.6s ease-out infinite}
+@keyframes saco-pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.6);opacity:0}}
+.card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-md);padding:32px;transition:transform var(--t-hover),border-color var(--t-hover)}
+.card:hover{transform:translateY(-3px);border-color:var(--border-hover)}
+.card-on-dark{background:var(--bg-dark-2);border:1px solid var(--border-on-dark);color:var(--text-on-dark)}
+.card-on-dark:hover{background:#182B47;border-color:rgba(255,255,255,.14);transform:translateY(-3px)}
+@media(max-width:640px){.card{padding:24px}}
+.fade-in{opacity:0;transition:opacity var(--t-fade)}.fade-in.in{opacity:1}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.fade-in{opacity:1!important}}
+.nav{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;gap:32px;height:76px}
+.nav-logo{flex-shrink:0;display:inline-flex}
+.nav-logo svg{height:46px;width:auto;display:block}
+.nav-links{display:flex;gap:28px;flex:1;justify-content:center}
+.nav-links a{font-family:var(--font-b);font-weight:500;font-size:.95rem;color:var(--text)}
+.nav-links a:hover{color:var(--primary)}
+.nav-right{display:flex;align-items:center;gap:14px;margin-left:auto}
+.nav-newcourse{background:transparent;border:0;cursor:pointer;font-family:var(--font-h);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-hover);display:inline-flex;align-items:center;gap:8px;padding:8px 0}
+.nav-newcourse:hover{color:var(--accent)}
+.nav-newcourse-dot{width:8px;height:8px;border-radius:999px;background:var(--accent);position:relative;display:inline-block}
+.nav-newcourse-dot::after{content:"";position:absolute;inset:0;border-radius:999px;background:var(--accent);animation:saco-pulse 1.6s ease-out infinite}
+.nav-cta{padding:10px 20px;font-size:.9rem}
+.nav-burger{display:none;flex-direction:column;gap:4px;background:transparent;border:0;cursor:pointer;padding:8px;margin-left:auto}
+.nav-burger span{width:22px;height:2px;background:var(--text);transition:transform .2s,opacity .2s}
+.nav.is-open .nav-burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav.is-open .nav-burger span:nth-child(2){opacity:0}
+.nav.is-open .nav-burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:980px){
+  .nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);flex-direction:column;justify-content:flex-start;padding:16px var(--pad);gap:14px}
+  .nav.is-open .nav-links{display:flex}
+  .nav-newcourse,.nav-cta{display:none}
+  .nav.is-open .nav-newcourse,.nav.is-open .nav-cta{display:inline-flex;margin:6px var(--pad)}
+  .nav-burger{display:inline-flex}
+}
+.hero{position:relative;background:var(--bg-dark);overflow:hidden;min-height:85vh;display:flex;align-items:center}
+.hero-photo{position:absolute;inset:0;z-index:0;background-image:url("https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1600&q=80");background-size:cover;background-position:center right}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--bg-dark) 0%,var(--bg-dark) 35%,rgba(14,27,46,.85) 55%,rgba(14,27,46,.4) 100%)}
+.hero .container{position:relative;z-index:2;width:100%}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(32px,4vw,72px);align-items:center;padding-top:clamp(48px,6vw,72px);padding-bottom:clamp(48px,6vw,72px)}
+.hero h1{color:var(--text-on-dark)}
+.hero-lede{font-size:1.125rem;line-height:1.6;color:var(--text-on-dark-mut);max-width:54ch;margin:24px 0 0}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero-proof{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px;color:var(--text-on-dark-mut);font-size:.9rem}
+.hero-proof span:nth-child(even){opacity:.5}
+.hero-form{background:var(--bg-dark-2);border:1px solid var(--border-on-dark);border-radius:var(--r-md);padding:32px;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.hero-form-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.hero-form-title{font-family:var(--font-h);font-weight:700;font-size:1.1rem;color:var(--text-on-dark)}
+.hero-form-sub{font-size:.85rem;color:var(--text-on-dark-mut);margin:0 0 18px}
+.hero-form .label{margin-top:12px}.hero-form .label:first-of-type{margin-top:0}
+.hero-form-foot{margin:14px 0 0;font-size:.8rem;color:var(--text-on-dark-mut);text-align:center}
+.hero-form-success{display:none;background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.4);color:#A7F3D0;border-radius:var(--r-sm);padding:12px 14px;font-size:.9rem;margin-top:14px}
+.hero-form-success.is-shown{display:block}
+@media(max-width:980px){.hero{min-height:auto}.hero-grid{grid-template-columns:1fr;padding-top:48px;padding-bottom:48px}.hero-overlay{background:linear-gradient(180deg,var(--bg-dark) 0%,rgba(14,27,46,.92) 60%,rgba(14,27,46,.85) 100%)}}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stat-num{font-family:var(--font-h);font-weight:700;font-size:clamp(2.25rem,5vw,3.5rem);color:var(--primary);line-height:1;letter-spacing:-.02em}
+.stat-label{margin-top:12px;font-family:var(--font-h);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted)}
+@media(max-width:720px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:32px 24px}}
+.sect-head{margin-bottom:56px;max-width:760px}
+.sect-head .road-line-h{margin:16px 0 24px}
+.sect-lede{font-size:1.0625rem;color:var(--text-muted);margin:0;max-width:60ch}
+.section-dark .sect-lede{color:var(--text-on-dark-mut)}
+.courses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.course{position:relative;overflow:hidden;display:flex;flex-direction:column}
+.course::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--primary);transition:all var(--t-hover)}
+.course:hover::before{width:100%;height:4px;bottom:auto}
+.course-icon{width:56px;height:56px;border-radius:999px;background:var(--primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;margin-bottom:18px}
+.course-pill{margin-bottom:14px;align-self:flex-start}
+.course-title{margin:0 0 6px;font-size:1.4rem}
+.course-headline{font-family:var(--font-h);font-weight:700;font-size:1rem;color:var(--text);margin:0 0 10px}
+.course-desc{color:var(--text-muted);font-size:.95rem;line-height:1.6;margin:0 0 20px;flex:1}
+.course-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-h);font-weight:700;font-size:.9rem;color:var(--primary)}
+@media(max-width:1080px){.courses-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.courses-grid{grid-template-columns:1fr}}
+.postup-grid{display:grid;grid-template-columns:380px 1fr;gap:64px;align-items:start}
+.postup-vis{position:sticky;top:104px}
+.postup-vis svg{width:100%;height:auto;display:block}
+.postup-list{list-style:none;padding:0;margin:0}
+.postup-item{display:grid;grid-template-columns:60px 1fr;gap:28px}
+.postup-rail{display:flex;flex-direction:column;align-items:center}
+.postup-dot{width:52px;height:52px;border-radius:999px;background:var(--primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:700;font-size:1.05rem;font-feature-settings:"tnum";flex-shrink:0}
+.postup-vline{flex:1;min-height:48px;margin:8px 0;width:3px}
+.postup-body{padding-bottom:48px;padding-top:8px}
+.postup-item:last-child .postup-body{padding-bottom:0}
+.postup-title{margin:0 0 8px;font-size:1.4rem}
+.postup-desc{margin:0;color:var(--text-muted);max-width:54ch}
+@media(max-width:980px){.postup-grid{grid-template-columns:1fr;gap:32px}.postup-vis{display:none}}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.why-card{display:flex;flex-direction:column;gap:14px}
+.why-icon{width:48px;height:48px;border-radius:999px;background:rgba(245,158,11,.12);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.why-title{font-size:1.2rem;margin:0;color:var(--text-on-dark)}
+.why-desc{margin:0;color:var(--text-on-dark-mut);font-size:.95rem;line-height:1.6}
+@media(max-width:1080px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.why-grid{grid-template-columns:1fr}}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.price-card{display:flex;flex-direction:column;gap:8px}
+.price-title{font-family:var(--font-h);font-weight:700;font-size:1.15rem;color:var(--text);margin:0}
+.price-amount{font-family:var(--font-h);font-weight:700;font-size:1.05rem;color:var(--primary);margin:6px 0 0;font-feature-settings:"tnum"}
+.price-note{color:var(--text-muted);font-size:.9rem;line-height:1.55;margin:8px 0 0;flex:1}
+.price-link{font-family:var(--font-h);font-weight:700;font-size:.9rem;color:var(--primary);margin-top:18px;display:inline-flex;gap:6px;align-items:center}
+@media(max-width:1080px){.pricing-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.pricing-grid{grid-template-columns:1fr}}
+.play-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,64px);align-items:center}
+.play-photo{aspect-ratio:16/10;border-radius:var(--r-md);overflow:hidden;background:#cdd6c5 url("https://images.unsplash.com/photo-1597149959983-3df8cd3c1f72?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;border:1px solid var(--border);position:relative}
+.play-photo::after{content:"Detské dopravné ihrisko · Žiar nad Hronom";position:absolute;left:16px;bottom:16px;background:rgba(14,27,46,.85);color:var(--text-on-dark);font-family:var(--font-h);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;padding:8px 12px;border-radius:var(--r-pill)}
+.play-list{list-style:none;padding:0;margin:24px 0 28px;display:flex;flex-direction:column;gap:12px}
+.play-list li{position:relative;padding-left:24px;font-size:1rem;color:var(--text)}
+.play-list li::before{content:"";position:absolute;left:0;top:11px;width:14px;height:3px;background:var(--accent)}
+@media(max-width:880px){.play-grid{grid-template-columns:1fr}}
+.contact-head{margin-bottom:56px;max-width:760px}
+.contact-head h2{color:var(--text-on-dark)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,56px);align-items:start}
+.contact-list{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:18px}
+.contact-list li{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:baseline}
+.contact-key{font-family:var(--font-h);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
+.contact-val{color:var(--text-on-dark);line-height:1.55}
+.contact-val a{color:var(--text-on-dark);border-bottom:1px dashed rgba(245,245,241,.3)}
+.contact-val a:hover{color:var(--accent);border-color:var(--accent)}
+.contact-map{width:100%;height:280px;border:0;border-radius:var(--r-md);background:#1a2c47}
+.contact-form{background:#fff;border-radius:var(--r-md);padding:40px;color:var(--text);box-shadow:0 24px 60px rgba(0,0,0,.25)}
+.contact-form-head{display:flex;flex-direction:column;gap:0;margin-bottom:18px}
+.contact-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-toast{display:none;margin-top:16px;padding:14px 16px;border-radius:var(--r-sm);background:#D1FAE5;color:#065F46;font-weight:500;border:1px solid rgba(5,150,105,.25)}
+.contact-toast.is-shown{display:block}
+@media(max-width:980px){.contact-grid{grid-template-columns:1fr}.contact-row{grid-template-columns:1fr}.contact-form{padding:28px}}
+.footer{background:var(--bg-dark);color:var(--text-on-dark);padding:80px 0 32px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1.2fr;gap:48px;margin-bottom:56px}
+.footer-blurb{color:var(--text-on-dark-mut);margin:18px 0 0;max-width:36ch;font-size:.95rem}
+.footer-h{font-family:var(--font-h);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin:0 0 18px}
+.footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;color:var(--text-on-dark-mut);font-size:.95rem;line-height:1.55}
+.footer ul a{color:var(--text-on-dark)}
+.footer ul a:hover{color:var(--accent)}
+.footer-sep{margin:0 0 24px}
+.footer-bottom{display:flex;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--text-on-dark-mut)}
+.footer-bottom span:nth-child(even){opacity:.5}
+@media(max-width:880px){.footer-grid{grid-template-columns:1fr;gap:32px}}
+.modal-backdrop{position:fixed;inset:0;z-index:100;background:rgba(15,15,20,.5);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-backdrop.is-open{display:flex;animation:saco-fade 250ms ease-out}
+.modal{width:100%;max-width:480px;background:#fff;border-radius:var(--r-md);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.30);animation:saco-modal-in 300ms ease-out}
+@keyframes saco-fade{from{opacity:0}to{opacity:1}}
+@keyframes saco-modal-in{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+.modal-head{background:var(--bg-dark);color:var(--text-on-dark);padding:22px;min-height:80px;display:flex;align-items:center;gap:12px}
+.modal-close{margin-left:auto;background:transparent;border:0;color:var(--text-on-dark);width:44px;height:44px;border-radius:8px;cursor:pointer;font-size:24px;line-height:1;display:inline-flex;align-items:center;justify-content:center;transition:background var(--t-btn),color var(--t-btn)}
+.modal-close:hover{color:var(--accent);background:rgba(255,255,255,.06)}
+.modal-body{padding:28px}
+.modal-title{margin:4px 0 6px;font-size:1.4rem;color:var(--text)}
+.modal-date{font-family:var(--font-h);font-weight:700;font-size:1.1rem;color:var(--primary);margin:0 0 12px;font-feature-settings:"tnum"}
+.modal-desc{color:var(--text-muted);margin:0 0 22px;font-size:.95rem;line-height:1.6}
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.modal-link{background:transparent;border:0;cursor:pointer;font-family:var(--font-h);font-weight:600;color:var(--text-muted);padding:8px 4px;text-decoration:underline;text-decoration-color:var(--border-hover);text-underline-offset:3px}
+.modal-link:hover{color:var(--text)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-logo" aria-label="SACO Autoškola — domov">
+      <svg viewBox="0 0 220 80" width="200" height="46" role="img" aria-label="SACO Autoškola">
+        <text x="0" y="36" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="800" font-size="36" letter-spacing="-0.01em" fill="#0F0F14">SACO</text>
+        <circle cx="93" cy="14" r="4" fill="#F59E0B"></circle>
+        <g fill="#F59E0B"><rect x="0" y="46" width="14" height="3"></rect><rect x="20" y="46" width="14" height="3"></rect><rect x="40" y="46" width="14" height="3"></rect></g>
+        <text x="0" y="68" font-family="Inter, system-ui, sans-serif" font-weight="500" font-size="10" letter-spacing="0.2em" fill="#6B6B73">AUTOŠKOLA</text>
+      </svg>
+    </a>
+    <nav class="nav-links" aria-label="Hlavná navigácia">
+      <a href="#kurzy">Kurzy</a>
+      <a href="#postup">Postup</a>
+      <a href="#preco">O nás</a>
+      <a href="#ihrisko">Dopravné ihrisko</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="nav-right">
+      <button type="button" class="nav-newcourse" id="navNewCourse" hidden>
+        <span class="nav-newcourse-dot" aria-hidden="true"></span>Nový kurz
+      </button>
+      <a class="btn btn-primary nav-cta" href="#kontakt">Prihláška</a>
+    </div>
+    <button type="button" class="nav-burger" aria-label="Menu" aria-expanded="false" id="navBurger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" aria-label="Úvod">
+  <div class="hero-photo" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow on-dark">SACO · Žiar nad Hronom · Od roku 2003</div>
+        <h1>Vodičák,<br>ktorý ti sadne.</h1>
+        <hr class="road-line-h long" style="margin:20px 0 0">
+        <p class="hero-lede">Autoškola SACO v Žiari nad Hronom. Osobné autá, motocykle A, A2, A1. Termíny vrátane víkendov, splátky bez navýšenia, individuálny prístup.</p>
+        <div class="hero-actions">
+          <a class="btn btn-accent" href="#kontakt">Prihlásiť sa do kurzu</a>
+          <a class="btn btn-ghost on-dark" href="#kurzy">Zobraziť kurzy</a>
+        </div>
+        <p class="hero-proof">
+          <span>4 kategórie</span><span aria-hidden="true">·</span>
+          <span>Splátky možné</span><span aria-hidden="true">·</span>
+          <span>Jazdy aj cez víkend</span>
+        </p>
+      </div>
+      <form class="hero-form" id="heroForm" novalidate>
+        <div class="hero-form-head" style="margin-bottom:14px">
+          <span class="hero-form-title">Prihláška na kurz</span>
+        </div>
+        <label class="label on-dark" for="hf-meno">Meno a priezvisko</label>
+        <input class="input on-dark" id="hf-meno" name="meno" placeholder="Ján Novák" required>
+        <label class="label on-dark" for="hf-tel">Telefón</label>
+        <input class="input on-dark" id="hf-tel" name="tel" type="tel" placeholder="0905 123 456" required>
+        <label class="label on-dark" for="hf-skupina">Skupina</label>
+        <select class="select on-dark" id="hf-skupina" name="skupina">
+          <option value="B">Skupina B — osobné auto</option>
+          <option value="A">Skupina A — motocykel</option>
+          <option value="A2">Skupina A2 — do 35 kW</option>
+          <option value="A1">Skupina A1 — do 125 cm³</option>
+        </select>
+        <label class="label on-dark" for="hf-poznamka">Poznámka <span class="text-muted" style="font-weight:400">(nepovinné)</span></label>
+        <textarea class="textarea on-dark" id="hf-poznamka" name="poznamka" rows="2" placeholder="Napr. preferovaný termín"></textarea>
+        <button type="submit" class="btn btn-accent" style="margin-top:16px">Odoslať</button>
+        <p class="hero-form-foot">Stlačením odoslať súhlasíš s tým, že ti zavoláme.</p>
+        <div class="hero-form-success" id="heroFormSuccess" role="status">Ďakujeme — ozveme sa do 24 hodín.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft fade-in" aria-label="Čísla">
+  <div class="container">
+    <div class="stats-grid">
+      <div><div class="stat-num">20+</div><div class="stat-label">Rokov skúseností</div></div>
+      <div><div class="stat-num">4</div><div class="stat-label">Kategórie vodičáku</div></div>
+      <div><div class="stat-num">2</div><div class="stat-label">Inštruktori</div></div>
+      <div><div class="stat-num">100<span style="font-size:.6em">%</span></div><div class="stat-label">Pripravenosť na skúšku</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in" id="kurzy">
+  <div class="container">
+    <div class="sect-head">
+      <div class="eyebrow">Ponuka</div>
+      <h2>Kurzy, ktoré u nás odjazdíš.</h2>
+      <hr class="road-line-h short">
+      <p class="sect-lede">Štyri kategórie pre dospievajúcich, dospelých aj tých, ktorí chcú obnoviť istotu za volantom.</p>
+    </div>
+    <div class="courses-grid">
+      <article class="card course">
+        <div class="course-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 17V11l2-5h14l2 5v6"></path><circle cx="7.5" cy="17.5" r="1.7"></circle><circle cx="16.5" cy="17.5" r="1.7"></circle></svg>
+        </div>
+        <span class="pill course-pill">Od 17 rokov</span>
+        <h3 class="course-title">Skupina B</h3>
+        <p class="course-headline">Osobné automobily do 3 500 kg.</p>
+        <p class="course-desc">Najčastejšia kategória. Kurz zahŕňa teóriu pravidiel cestnej premávky, technickú prípravu, kurz prvej pomoci a praktické jazdy s inštruktorom. Po absolvovaní robíš záverečnú skúšku na okresnom dopravnom inšpektoráte.</p>
+        <a class="course-link" href="#kontakt">Detaily a prihláška <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </article>
+      <article class="card course">
+        <div class="course-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17" r="3"></circle><circle cx="18.5" cy="17" r="3"></circle><path d="M5.5 17l4-7h5l3 7M9.5 10h4M14 8l1 2"></path></svg>
+        </div>
+        <span class="pill course-pill">Od 24 rokov</span>
+        <h3 class="course-title">Skupina A</h3>
+        <p class="course-headline">Motocykle bez obmedzenia výkonu.</p>
+        <p class="course-desc">Plný motorkársky vodičák. Možno získať od 24 rokov, alebo od 20, ak máš minimálne 2 roky skupinu A2. Výcvik prebieha na cvičisku aj v cestnej premávke.</p>
+        <a class="course-link" href="#kontakt">Detaily a prihláška <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </article>
+      <article class="card course">
+        <div class="course-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17" r="3"></circle><circle cx="18.5" cy="17" r="3"></circle><path d="M5.5 17l4-7h5l3 7"></path></svg>
+        </div>
+        <span class="pill course-pill">Od 18 rokov</span>
+        <h3 class="course-title">Skupina A2</h3>
+        <p class="course-headline">Motocykle s výkonom do 35 kW.</p>
+        <p class="course-desc">Stredná motocyklová kategória. Vhodná, ak chceš jazdiť na motorke, ale ešte si netrúfaš na plný výkon. Po dvoch rokoch si môžeš spraviť rozšírenie na A.</p>
+        <a class="course-link" href="#kontakt">Detaily a prihláška <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </article>
+      <article class="card course">
+        <div class="course-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17" r="2.5"></circle><circle cx="18.5" cy="17" r="2.5"></circle><path d="M5.5 17l3.5-6h4l2.5 6"></path></svg>
+        </div>
+        <span class="pill course-pill">Od 16 rokov</span>
+        <h3 class="course-title">Skupina A1</h3>
+        <p class="course-headline">Motocykle do 125 cm³, max 11 kW.</p>
+        <p class="course-desc">Vstupná motocyklová kategória. Ideálna ako prvý krok pre tínedžerov. Naučíme ťa základy bezpečnej jazdy na cvičisku aj v premávke.</p>
+        <a class="course-link" href="#kontakt">Detaily a prihláška <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft fade-in" id="postup">
+  <div class="container">
+    <div class="sect-head">
+      <div class="eyebrow">Postup</div>
+      <h2>Štyri kroky k vodičáku.</h2>
+      <hr class="road-line-h short">
+      <p class="sect-lede">Žiadne prekvapenia. Vieme presne, čo ťa čaká, a prevedieme ťa celým procesom.</p>
+    </div>
+    <div class="postup-grid">
+      <div class="postup-vis" aria-hidden="true">
+        <svg viewBox="0 0 380 500">
+          <defs>
+            <pattern id="tread" width="14" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)">
+              <rect x="2" y="2" width="10" height="6" rx="1" fill="#0F0F14"></rect>
+              <rect x="2" y="12" width="10" height="6" rx="1" fill="#0F0F14"></rect>
+            </pattern>
+          </defs>
+          <g opacity="0.85">
+            <path d="M40 20 Q60 120 90 230 Q110 320 80 480" stroke="url(#tread)" stroke-width="34" fill="none" stroke-linecap="butt" opacity="0.5"></path>
+            <path d="M150 10 Q170 130 200 240 Q220 340 200 490" stroke="url(#tread)" stroke-width="34" fill="none" stroke-linecap="butt" opacity="0.32"></path>
+            <path d="M260 30 Q280 140 305 260 Q325 360 320 480" stroke="url(#tread)" stroke-width="34" fill="none" stroke-linecap="butt" opacity="0.15"></path>
+          </g>
+          <g fill="#F59E0B">
+            <rect x="356" y="40" width="4" height="20"></rect>
+            <rect x="356" y="80" width="4" height="20"></rect>
+            <rect x="356" y="120" width="4" height="20"></rect>
+            <rect x="356" y="160" width="4" height="20"></rect>
+            <rect x="356" y="200" width="4" height="20"></rect>
+            <rect x="356" y="240" width="4" height="20"></rect>
+            <rect x="356" y="280" width="4" height="20"></rect>
+            <rect x="356" y="320" width="4" height="20"></rect>
+            <rect x="356" y="360" width="4" height="20"></rect>
+            <rect x="356" y="400" width="4" height="20"></rect>
+            <rect x="356" y="440" width="4" height="20"></rect>
+          </g>
+        </svg>
+      </div>
+      <ol class="postup-list">
+        <li class="postup-item">
+          <div class="postup-rail"><div class="postup-dot">01</div><div class="road-line-v postup-vline"></div></div>
+          <div class="postup-body">
+            <h3 class="postup-title">Prihlásenie</h3>
+            <p class="postup-desc">Vyplň online prihlášku alebo príď za nami osobne na Rudenkovu. Vybavíme ťa na počkanie a dohodneme termín kurzu.</p>
+          </div>
+        </li>
+        <li class="postup-item">
+          <div class="postup-rail"><div class="postup-dot">02</div><div class="road-line-v postup-vline"></div></div>
+          <div class="postup-body">
+            <h3 class="postup-title">Lekárska prehliadka</h3>
+            <p class="postup-desc">Pred začiatkom kurzu potrebuješ potvrdenie od lekára o zdravotnej spôsobilosti. Stačí všeobecný lekár, dá sa vybaviť za pár dní.</p>
+          </div>
+        </li>
+        <li class="postup-item">
+          <div class="postup-rail"><div class="postup-dot">03</div><div class="road-line-v postup-vline"></div></div>
+          <div class="postup-body">
+            <h3 class="postup-title">Teória a praktické jazdy</h3>
+            <p class="postup-desc">Teoretická výučba pravidiel cestnej premávky, techniky vozidla a prvej pomoci. Súčasne začínaš jazdiť — najprv na cvičisku, potom v meste.</p>
+          </div>
+        </li>
+        <li class="postup-item">
+          <div class="postup-rail"><div class="postup-dot">04</div></div>
+          <div class="postup-body">
+            <h3 class="postup-title">Záverečné skúšky</h3>
+            <p class="postup-desc">Po absolvovaní kurzu robíš teoretickú a praktickú skúšku na okresnom dopravnom inšpektoráte. My ťa pripravíme tak, aby si to dal na prvý raz.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark fade-in" id="preco">
+  <div class="container">
+    <div class="sect-head">
+      <div class="eyebrow on-dark">Prečo my</div>
+      <h2 style="color:var(--text-on-dark)">Nie sme najväčší. Sme najpozornejší.</h2>
+      <hr class="road-line-h short">
+      <p class="sect-lede">Robíme svoju prácu dobre už dve dekády. Bez marketingových rečí — len jazdy, teória a ľudský prístup.</p>
+    </div>
+    <div class="why-grid">
+      <article class="card card-on-dark why-card">
+        <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></div>
+        <h3 class="why-title">Termíny aj cez víkend</h3>
+        <p class="why-desc">Jazdíme od ranných hodín po večerné, vrátane sobôt a nedieľ. Termín si vyberieš tak, aby sa zmestil do tvojho rozvrhu.</p>
+      </article>
+      <article class="card card-on-dark why-card">
+        <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 11h18M7 15h4"></path></svg></div>
+        <h3 class="why-title">Splátky bez navýšenia</h3>
+        <p class="why-desc">Cenu kurzu si môžeš rozložiť na splátky podľa svojich možností. Žiadne úroky, žiadne skryté poplatky.</p>
+      </article>
+      <article class="card card-on-dark why-card">
+        <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2.4"></circle><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5M14 19c0-2.4 2-4 4-4s4 1.6 4 4"></path></svg></div>
+        <h3 class="why-title">Individuálny prístup</h3>
+        <p class="why-desc">Nie sme veľká reťazová autoškola. Inštruktorov poznáš osobne, vedia, kde máš slabšie miesta a venujú sa ti.</p>
+      </article>
+      <article class="card card-on-dark why-card">
+        <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path></svg></div>
+        <h3 class="why-title">Kondičné jazdy</h3>
+        <p class="why-desc">Aj po vodičáku, pre tých, ktorí dlhšie nešoférovali a chcú si obnoviť istotu. Počet hodín si určíš sám.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in" id="cennik">
+  <div class="container">
+    <div class="sect-head">
+      <div class="eyebrow">Ceny</div>
+      <h2>Aktuálne ceny.</h2>
+      <hr class="road-line-h short">
+      <p class="sect-lede">Ceny sa pravidelne aktualizujú podľa zmien v predpisoch. Pre presnú aktuálnu cenu nás kontaktuj telefonicky alebo e-mailom — radi ti všetko vysvetlíme.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="card price-card">
+        <h3 class="price-title">Skupina B</h3>
+        <div class="price-amount">Cena na vyžiadanie</div>
+        <p class="price-note">Osobné automobily do 3 500 kg.</p>
+        <a class="price-link" href="#kontakt">Spýtať sa <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </div>
+      <div class="card price-card">
+        <h3 class="price-title">Skupina A</h3>
+        <div class="price-amount">Cena na vyžiadanie</div>
+        <p class="price-note">Motocykle bez obmedzenia výkonu.</p>
+        <a class="price-link" href="#kontakt">Spýtať sa <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </div>
+      <div class="card price-card">
+        <h3 class="price-title">Skupina A2</h3>
+        <div class="price-amount">Cena na vyžiadanie</div>
+        <p class="price-note">Motocykle do 35 kW.</p>
+        <a class="price-link" href="#kontakt">Spýtať sa <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </div>
+      <div class="card price-card">
+        <h3 class="price-title">Skupina A1</h3>
+        <div class="price-amount">Cena na vyžiadanie</div>
+        <p class="price-note">Motocykle do 125 cm³, max 11 kW.</p>
+        <a class="price-link" href="#kontakt">Spýtať sa <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft fade-in" id="ihrisko">
+  <div class="container">
+    <div class="play-grid">
+      <div>
+        <div class="eyebrow">Navyše</div>
+        <h2>Detské dopravné ihrisko v Žiari.</h2>
+        <hr class="road-line-h short" style="margin:16px 0 24px">
+        <p class="sect-lede" style="margin-bottom:0">Pri autoškole prevádzkujeme aj detské dopravné ihrisko, kde sa škôlkari a školáci učia bezpečnosť na cestách prakticky a hravo. Ihrisko je dostupné pre školy, škôlky aj individuálne návštevy.</p>
+        <ul class="play-list">
+          <li>Pre školy a škôlky po dohode</li>
+          <li>Bicykle, kolobežky, dopravné značky</li>
+          <li>Adresa: Rudenkova 816/19, Žiar nad Hronom</li>
+        </ul>
+        <a class="btn btn-primary" href="#kontakt">Plán akcií na ihrisku <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </div>
+      <div class="play-photo" role="img" aria-label="Detské dopravné ihrisko v areáli autoškoly"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark fade-in" id="kontakt">
+  <div class="container">
+    <div class="contact-head">
+      <div class="eyebrow on-dark">Napíš nám</div>
+      <h2>Najbližší kurz môže byť tvoj.</h2>
+      <hr class="road-line-h short">
+      <p class="sect-lede">Zavolaj, napíš alebo príď. Vybavíme ťa rýchlo a bez zbytočností.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <ul class="contact-list">
+          <li><span class="contact-key">Adresa</span><span class="contact-val">Rudenkova 816/19, 965 01 Žiar nad Hronom</span></li>
+          <li><span class="contact-key">Telefón</span><span class="contact-val"><a href="tel:+421905650761">0905 650 761</a><br><a href="tel:+421905589441">0905 589 441</a></span></li>
+          <li><span class="contact-key">E-mail</span><span class="contact-val"><a href="mailto:info@saco.sk">info@saco.sk</a><br><a href="mailto:autoskola@saco.sk">autoskola@saco.sk</a></span></li>
+          <li><span class="contact-key">Facebook</span><span class="contact-val"><a href="https://facebook.com/autoskola.saco" rel="noopener">facebook.com/autoskola.saco</a></span></li>
+          <li><span class="contact-key">IČO</span><span class="contact-val tnum">46008101</span></li>
+        </ul>
+        <iframe class="contact-map" title="Mapa — Rudenkova 816/19, Žiar nad Hronom" src="https://www.openstreetmap.org/export/embed.html?bbox=18.8505%2C48.5825%2C18.8745%2C48.5965&amp;layer=mapnik&amp;marker=48.5895%2C18.8625" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="contact-form-head">
+          <span class="eyebrow">Formulár</span>
+          <hr class="road-line-h short" style="margin-top:6px">
+        </div>
+        <div class="contact-row">
+          <div><label class="label" for="cf-meno">Meno a priezvisko</label><input class="input" id="cf-meno" name="meno" required></div>
+          <div><label class="label" for="cf-tel">Telefón</label><input class="input" id="cf-tel" name="tel" type="tel" required></div>
+        </div>
+        <label class="label" for="cf-email">E-mail</label>
+        <input class="input" id="cf-email" name="email" type="email" required>
+        <label class="label" for="cf-tema">Téma</label>
+        <select class="select" id="cf-tema" name="tema">
+          <option>Skupina B — osobné auto</option>
+          <option>Skupina A — motocykel</option>
+          <option>Skupina A2 — do 35 kW</option>
+          <option>Skupina A1 — do 125 cm³</option>
+          <option>Kondičné jazdy</option>
+          <option>Detské dopravné ihrisko</option>
+          <option>Iné</option>
+        </select>
+        <label class="label" for="cf-subject">Predmet</label>
+        <input class="input" id="cf-subject" name="subject" placeholder="Napr. Záujem o kurz: Skupina B">
+        <label class="label" for="cf-msg">Správa</label>
+        <textarea class="textarea" id="cf-msg" name="msg" rows="4"></textarea>
+        <button type="submit" class="btn btn-primary" style="margin-top:16px">Odoslať správu</button>
+        <div class="contact-toast" id="contactToast" role="status">Ďakujeme, ozveme sa do 24 hodín.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <svg viewBox="0 0 220 80" width="170" height="56" role="img" aria-label="SACO Autoškola">
+          <text x="0" y="36" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="800" font-size="36" letter-spacing="-0.01em" fill="#F5F5F1">SACO</text>
+          <circle cx="93" cy="14" r="4" fill="#F59E0B"></circle>
+          <g fill="#F59E0B"><rect x="0" y="46" width="14" height="3"></rect><rect x="20" y="46" width="14" height="3"></rect><rect x="40" y="46" width="14" height="3"></rect></g>
+          <text x="0" y="68" font-family="Inter, system-ui, sans-serif" font-weight="500" font-size="10" letter-spacing="0.2em" fill="#8FA3BD">AUTOŠKOLA</text>
+        </svg>
+        <p class="footer-blurb">Rodinná autoškola v Žiari nad Hronom. Učíme jazdiť od roku 2003.</p>
+      </div>
+      <div>
+        <div class="footer-h">Rýchle linky</div>
+        <ul>
+          <li><a href="#kurzy">Kurzy</a></li>
+          <li><a href="#postup">Postup</a></li>
+          <li><a href="#preco">O nás</a></li>
+          <li><a href="#cennik">Cenník</a></li>
+          <li><a href="#ihrisko">Dopravné ihrisko</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-h">Kontakt</div>
+        <ul>
+          <li>Rudenkova 816/19<br>965 01 Žiar nad Hronom</li>
+          <li><a href="tel:+421905650761">0905 650 761</a> · <a href="tel:+421905589441">0905 589 441</a></li>
+          <li><a href="mailto:info@saco.sk">info@saco.sk</a></li>
+          <li><a href="https://facebook.com/autoskola.saco" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="road-line-h full footer-sep">
+    <div class="footer-bottom">
+      <span>© 2025 SACO s.r.o.</span>
+      <span aria-hidden="true">·</span>
+      <span class="tnum">IČO 46008101</span>
+      <span aria-hidden="true">·</span>
+      <span>Rudenkova 816/19, 965 01 Žiar nad Hronom</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop" role="presentation" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <span class="badge-new"><span class="pulse" aria-hidden="true"></span>Nový kurz</span>
+      <button type="button" class="modal-close" id="modalClose" aria-label="Zatvoriť">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="eyebrow" id="modalType">Skupina B</div>
+      <hr class="road-line-h short" style="margin:0 0 12px">
+      <h3 class="modal-title" id="modalTitle">Otvárame nový kurz skupiny B</h3>
+      <div class="modal-date" id="modalDate">15. november 2025</div>
+      <p class="modal-desc" id="modalDesc">Večerný kurz, 2× týždenne, kapacita 12 miest.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-primary" id="modalInterested">Mám záujem</button>
+        <button type="button" class="modal-link" id="modalLater">Možno neskôr</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var NEW_COURSE = {
+    enabled: true,
+    type: "Skupina B",
+    title: "Otvárame nový kurz skupiny B",
+    date: "15. november 2025",
+    description: "Večerný kurz, 2× týždenne, kapacita 12 miest."
+  };
+  function $(s,c){return (c||document).querySelector(s);}
+  function on(el,ev,fn){el && el.addEventListener(ev,fn);}
+  var nav=$("#nav"), burger=$("#navBurger");
+  on(burger,"click",function(){var o=nav.classList.toggle("is-open");burger.setAttribute("aria-expanded",o?"true":"false");});
+  document.querySelectorAll(".nav-links a").forEach(function(a){on(a,"click",function(){nav.classList.remove("is-open");burger&&burger.setAttribute("aria-expanded","false");});});
+  var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduced){document.querySelectorAll(".fade-in").forEach(function(el){el.classList.add("in");});}
+  else if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:0.15});
+    document.querySelectorAll(".fade-in").forEach(function(el){io.observe(el);});
+  } else {document.querySelectorAll(".fade-in").forEach(function(el){el.classList.add("in");});}
+  var hf=$("#heroForm"), hs=$("#heroFormSuccess");
+  on(hf,"submit",function(e){e.preventDefault();if(!hf.checkValidity()){hf.reportValidity();return;}
+    var d=new FormData(hf), subj=$("#cf-subject");
+    if(subj && !subj.value){subj.value="Záujem o kurz: "+d.get("skupina");}
+    hs.classList.add("is-shown");hf.reset();
+    setTimeout(function(){hs.classList.remove("is-shown");},4000);
+  });
+  var cf=$("#contactForm"), ct=$("#contactToast");
+  on(cf,"submit",function(e){e.preventDefault();if(!cf.checkValidity()){cf.reportValidity();return;}
+    ct.classList.add("is-shown");cf.reset();
+    setTimeout(function(){ct.classList.remove("is-shown");},5000);
+  });
+  var bd=$("#modalBackdrop"), mc=$("#modalClose"), ml=$("#modalLater"), mi=$("#modalInterested"), no=$("#navNewCourse");
+  var seenKey="saco_popup_seen_"+NEW_COURSE.date, lastFocus=null;
+  $("#modalType").textContent=NEW_COURSE.type;
+  $("#modalTitle").textContent=NEW_COURSE.title;
+  $("#modalDate").textContent=NEW_COURSE.date;
+  $("#modalDesc").textContent=NEW_COURSE.description;
+  if(NEW_COURSE.enabled && no){no.hidden=false;}
+  function open(){if(!NEW_COURSE.enabled)return;lastFocus=document.activeElement;bd.classList.add("is-open");bd.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";setTimeout(function(){mc&&mc.focus();},50);}
+  function close(){bd.classList.remove("is-open");bd.setAttribute("aria-hidden","true");document.body.style.overflow="";try{localStorage.setItem(seenKey,"1");}catch(_){};if(lastFocus&&lastFocus.focus){lastFocus.focus();}}
+  function interested(){var s=$("#cf-subject");if(s){s.value="Záujem o kurz: "+NEW_COURSE.type+" — "+NEW_COURSE.date;}close();setTimeout(function(){var t=document.getElementById("kontakt");if(t)t.scrollIntoView({behavior:"smooth",block:"start"});setTimeout(function(){var n=$("#cf-meno");n&&n.focus();},700);},60);}
+  on(mc,"click",close);on(ml,"click",close);on(mi,"click",interested);
+  on(bd,"click",function(e){if(e.target===bd)close();});
+  on(document,"keydown",function(e){if(e.key==="Escape" && bd.classList.contains("is-open"))close();});
+  on(no,"click",open);
+  if(NEW_COURSE.enabled){var seen=false;try{seen=!!localStorage.getItem(seenKey);}catch(_){};if(!seen){setTimeout(open,1500);}}
+})();
+</script>
+</body>
+</html>

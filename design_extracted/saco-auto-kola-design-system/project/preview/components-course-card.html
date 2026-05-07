@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="sk"><head><meta charset="utf-8"><title>Components — Course card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body { margin: 0; padding: 24px; background: var(--bg-soft); display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.title { font-family: var(--font-heading); font-weight: 700; font-size: 22px; margin: 0 0 6px; }
+.desc { font-family: var(--font-body); font-size: 15px; color: var(--text-muted); margin: 0 0 14px; }
+.row { display: flex; gap: 6px; flex-wrap: wrap; }
+svg { display: block; }
+</style></head>
+<body>
+<article class="card card-course">
+  <div class="course-icon">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 17V11l2-5h14l2 5v6"/><circle cx="7.5" cy="17.5" r="1.7"/><circle cx="16.5" cy="17.5" r="1.7"/></svg>
+  </div>
+  <h3 class="title">Skupina B</h3>
+  <p class="desc">Osobné automobily do 3 500 kg.</p>
+  <div class="row"><span class="pill">Od 17 rokov</span><span class="pill">Manuál + automat</span></div>
+</article>
+<article class="card card-course">
+  <div class="course-icon">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17" r="3"/><circle cx="18.5" cy="17" r="3"/><path d="M5.5 17l4-7h5l3 7M9.5 10h4M14 8l1 2"/></svg>
+  </div>
+  <h3 class="title">Skupina A, A2, A1</h3>
+  <p class="desc">Motocykle podľa veku a výkonu.</p>
+  <div class="row"><span class="pill">Od 16 rokov</span><span class="pill">3 podskupiny</span></div>
+</article>
+</body></html>

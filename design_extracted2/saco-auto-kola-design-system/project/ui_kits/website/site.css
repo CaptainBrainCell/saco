@@ -1,0 +1,355 @@
+/* SACO — UI kit page styles. Tokens come from ../../colors_and_type.css */
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* ============================================================
+   Section fade-in (opacity only, no slide)
+   ============================================================ */
+.fade-in     { opacity: 0; transition: opacity var(--t-fade); }
+.fade-in.in  { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { opacity: 1 !important; }
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.saco-nav {
+  position: sticky; top: 0; z-index: 30;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  /* No backdrop-filter, no glassmorphism. */
+}
+.saco-nav-inner {
+  display: flex; align-items: center; gap: 32px;
+  height: 72px;
+}
+.saco-nav-logo { display: inline-flex; flex-shrink: 0; }
+.saco-nav-logo img { height: 40px; width: auto; }
+.saco-nav-links {
+  display: flex; gap: 28px; flex: 1;
+}
+.saco-nav-links a {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.saco-nav-links a:hover { color: var(--primary); }
+.saco-nav-right { display: flex; align-items: center; gap: 14px; }
+.saco-nav-newcourse {
+  background: transparent; border: 0; cursor: pointer;
+  font-family: var(--font-heading); font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--accent-hover);
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 0;
+}
+.saco-nav-newcourse:hover { color: var(--accent); }
+.saco-nav-newcourse-dot {
+  width: 8px; height: 8px; border-radius: 999px; background: var(--accent);
+  position: relative; display: inline-block;
+}
+.saco-nav-newcourse-dot::after {
+  content: ""; position: absolute; inset: 0; border-radius: 999px;
+  background: var(--accent); animation: saco-pulse 1.6s ease-out infinite;
+}
+.saco-nav-cta { padding: 10px 20px; font-size: 0.9rem; }
+.saco-nav-burger { display: none; }
+
+@media (max-width: 880px) {
+  .saco-nav-links { display: none; }
+  .saco-nav-newcourse { display: none; }
+  .saco-nav-burger {
+    display: inline-flex; flex-direction: column; gap: 4px;
+    background: transparent; border: 0; cursor: pointer; padding: 8px;
+  }
+  .saco-nav-burger span { width: 22px; height: 2px; background: var(--text); }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.saco-hero { padding-top: clamp(48px, 6vw, 80px); padding-bottom: clamp(60px, 8vw, 110px); }
+.saco-hero-grid {
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+}
+.saco-hero-copy h1 { color: var(--text-on-dark); }
+.saco-hero-lede {
+  font-size: 1.125rem; line-height: 1.6;
+  color: var(--text-on-dark-mut); max-width: 52ch;
+}
+.saco-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.saco-hero-proof {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-top: 32px; color: var(--text-on-dark-mut);
+  font-size: 0.9rem;
+}
+.saco-hero-proof span:nth-child(even) { opacity: 0.5; }
+
+.saco-hero-right { display: flex; flex-direction: column; gap: 20px; }
+.saco-hero-photo {
+  border-radius: var(--radius-md); overflow: hidden;
+  aspect-ratio: 4 / 3.2;
+  background: #0a1322;
+  border: 1px solid var(--border-on-dark);
+}
+.saco-hero-photo svg { display: block; width: 100%; height: 100%; }
+
+.saco-hero-form {
+  background: var(--bg-dark-2);
+  border: 1px solid var(--border-on-dark);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex; flex-direction: column;
+}
+.saco-hero-form-head { margin-bottom: 14px; }
+.saco-hero-form .label {
+  color: var(--text-on-dark);
+  margin-top: 10px;
+}
+.saco-hero-form .input,
+.saco-hero-form .select {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.18);
+  color: var(--text-on-dark);
+}
+.saco-hero-form .input::placeholder { color: var(--text-on-dark-mut); }
+.saco-hero-form .input:focus,
+.saco-hero-form .select:focus {
+  border-color: var(--accent);
+  background: rgba(255,255,255,0.08);
+}
+.saco-hero-form-foot {
+  margin: 12px 0 0; font-size: 0.8rem; color: var(--text-on-dark-mut); text-align: center;
+}
+
+.label.on-dark { color: var(--text-on-dark); }
+
+@media (max-width: 880px) {
+  .saco-hero-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+.saco-stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--grid-gap);
+}
+.saco-stat .stat-num {
+  font-family: var(--font-heading); font-weight: 700; font-size: clamp(2.5rem, 5vw, 3.75rem);
+  color: var(--text); line-height: 1; letter-spacing: -0.02em;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+.saco-stat-label { color: var(--text-muted); margin-top: 10px; font-size: 0.95rem; }
+@media (max-width: 720px) {
+  .saco-stats-grid { grid-template-columns: repeat(2, 1fr); gap: var(--grid-gap-mobile); }
+}
+
+/* ============================================================
+   Section lede
+   ============================================================ */
+.saco-section-lede {
+  max-width: 60ch;
+  font-size: 1.0625rem;
+  color: var(--text-muted);
+  margin: 24px 0 56px;
+}
+.saco-section-lede.on-dark { color: var(--text-on-dark-mut); }
+
+/* ============================================================
+   COURSES
+   ============================================================ */
+.saco-courses-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--grid-gap);
+}
+.saco-course-title { margin: 0 0 6px; }
+.saco-course-desc  { color: var(--text-muted); margin: 0 0 16px; font-size: 0.95rem; line-height: 1.55; }
+.saco-course-tags  { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+.saco-course-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-heading); font-weight: 700; font-size: 0.9rem;
+  color: var(--primary); text-transform: none;
+}
+@media (max-width: 980px) { .saco-courses-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .saco-courses-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   POSTUP
+   ============================================================ */
+.saco-postup-list { list-style: none; padding: 0; margin: 0; max-width: 720px; }
+.saco-postup-item { display: grid; grid-template-columns: 56px 1fr; gap: 24px; }
+.saco-postup-rail {
+  display: flex; flex-direction: column; align-items: center;
+}
+.saco-postup-dot {
+  width: 44px; height: 44px; border-radius: 999px;
+  background: var(--primary); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-heading); font-weight: 700; font-size: 1rem;
+  font-feature-settings: "tnum";
+  flex-shrink: 0;
+}
+.saco-postup-vline { flex: 1; min-height: 36px; margin: 8px 0; }
+.saco-postup-body { padding-bottom: 36px; padding-top: 6px; }
+.saco-postup-title { margin: 0 0 6px; font-size: 1.25rem; }
+.saco-postup-desc  { margin: 0; color: var(--text-muted); }
+
+/* ============================================================
+   WHY US
+   ============================================================ */
+.saco-why-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--grid-gap);
+}
+.saco-why-icon {
+  width: 32px; height: 32px; color: var(--accent); margin-bottom: 18px;
+}
+.saco-why-icon svg { width: 100%; height: 100%; }
+.saco-why-title { margin: 0 0 8px; font-size: 1.2rem; color: var(--text-on-dark); }
+.saco-why-desc  { margin: 0; color: var(--text-on-dark-mut); font-size: 0.95rem; line-height: 1.55; }
+@media (max-width: 980px) { .saco-why-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.saco-pricing-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--grid-gap);
+}
+.saco-pricing-card { display: flex; flex-direction: column; gap: 8px; }
+.saco-pricing-title { font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem; }
+.saco-pricing-price { font-family: var(--font-heading); font-weight: 700; font-size: 1.05rem; color: var(--primary); }
+.saco-pricing-note  { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; flex: 1; }
+.saco-pricing-link  { font-family: var(--font-heading); font-weight: 700; font-size: 0.9rem; margin-top: 12px; }
+@media (max-width: 980px) { .saco-pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ============================================================
+   PLAYGROUND
+   ============================================================ */
+.saco-playground-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 4vw, 64px); align-items: center; }
+.saco-playground-list {
+  list-style: none; padding: 0; margin: 24px 0 32px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.saco-playground-list li {
+  position: relative; padding-left: 22px;
+  font-size: 1rem; color: var(--text);
+}
+.saco-playground-list li::before {
+  content: ""; position: absolute; left: 0; top: 10px;
+  width: 12px; height: 3px;
+  background: var(--accent);
+}
+.saco-playground-vis svg { width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--border); }
+@media (max-width: 880px) { .saco-playground-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.saco-contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 4vw, 56px);
+  align-items: start;
+}
+.saco-contact-info h2 { color: var(--text-on-dark); }
+.saco-contact-list {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.saco-contact-list li { display: grid; grid-template-columns: 100px 1fr; gap: 16px; align-items: baseline; }
+.saco-contact-key {
+  font-family: var(--font-heading); font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
+}
+.saco-contact-val { color: var(--text-on-dark); line-height: 1.55; }
+.saco-contact-val a { color: var(--text-on-dark); border-bottom: 1px dashed rgba(245,245,241,0.3); }
+.saco-contact-val a:hover { color: var(--accent); border-color: var(--accent); }
+
+.saco-contact-form {
+  background: #fff; border-radius: var(--radius-md);
+  padding: 32px;
+  color: var(--text);
+}
+.saco-contact-form-head { margin-bottom: 18px; }
+.saco-contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 880px) {
+  .saco-contact-grid { grid-template-columns: 1fr; }
+  .saco-contact-row { grid-template-columns: 1fr; }
+}
+.saco-contact-success {
+  text-align: center; padding: 32px 0;
+}
+.saco-contact-success-mark {
+  width: 56px; height: 56px; border-radius: 999px;
+  background: #D1FAE5; color: var(--success);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 28px; font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.saco-footer { padding: 80px 0 40px; color: var(--text-on-dark); }
+.saco-footer-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; gap: 48px;
+  margin-bottom: 56px;
+}
+.saco-footer-blurb { color: var(--text-on-dark-mut); margin-top: 16px; max-width: 36ch; font-size: 0.95rem; }
+.saco-footer-h {
+  font-family: var(--font-heading); font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
+  margin-bottom: 18px;
+}
+.saco-footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; color: var(--text-on-dark-mut); font-size: 0.95rem; line-height: 1.55; }
+.saco-footer ul a { color: var(--text-on-dark); }
+.saco-footer ul a:hover { color: var(--accent); }
+.saco-footer-bottom {
+  padding-top: 28px;
+  border-top: 1px solid var(--border-on-dark);
+  display: flex; flex-wrap: wrap; gap: 12px;
+  font-size: 0.85rem; color: var(--text-on-dark-mut);
+}
+.saco-footer-bottom span:nth-child(even) { opacity: 0.5; }
+@media (max-width: 880px) { .saco-footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.saco-modal-backdrop {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(15,15,20,0.5);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  animation: saco-fade 250ms ease-out;
+}
+.saco-modal {
+  width: 100%; max-width: 480px;
+  background: #fff; border-radius: var(--radius-md); overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.30);
+  animation: saco-modal-in 300ms ease-out;
+}
+@keyframes saco-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes saco-modal-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.saco-modal-head {
+  background: var(--bg-dark); color: var(--text-on-dark);
+  padding: 22px; min-height: 80px;
+  display: flex; align-items: center; gap: 12px;
+  box-sizing: border-box;
+}
+.saco-modal-close {
+  margin-left: auto; background: transparent; border: 0;
+  color: var(--text-on-dark); font-size: 28px; line-height: 1;
+  cursor: pointer; padding: 4px 8px;
+}
+.saco-modal-close:hover { color: var(--accent); }
+.saco-modal-body { padding: 24px; }
+.saco-modal-title { margin: 4px 0 4px; font-size: 1.4rem; }
+.saco-modal-date { font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem; color: var(--primary); margin: 0 0 12px; font-feature-settings: "tnum"; }
+.saco-modal-desc { color: var(--text-muted); margin: 0 0 22px; font-size: 0.95rem; line-height: 1.55; }
+.saco-modal-actions { display: flex; gap: 10px; flex-wrap: wrap; }

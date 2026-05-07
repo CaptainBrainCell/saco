@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="sk"><head><meta charset="utf-8"><title>Brand — Road-line</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body { margin: 0; padding: 28px; background: #fff; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+.box { display: flex; flex-direction: column; gap: 8px; }
+.box .meta { font-family: var(--font-body); font-size: 11px; color: var(--text-muted); }
+.vbox { display: flex; align-items: stretch; gap: 16px; height: 160px; }
+.steps { display: flex; flex-direction: column; justify-content: space-between; }
+.dot { width: 32px; height: 32px; border-radius: 999px; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 700; font-size: 14px; }
+</style></head>
+<body>
+<div class="box">
+  <hr class="road-line-h long"/>
+  <div class="meta">long · 120px · under hero h1</div>
+  <hr class="road-line-h medium"/>
+  <div class="meta">medium · 80px</div>
+  <hr class="road-line-h short"/>
+  <div class="meta">short · 40px · under section eyebrows</div>
+  <hr class="road-line-h full"/>
+  <div class="meta">full · footer separator</div>
+</div>
+<div class="box">
+  <div class="meta" style="margin-bottom: 4px;">vertical · between Postup steps</div>
+  <div class="vbox">
+    <div class="steps">
+      <div class="dot">1</div>
+      <div class="dot">2</div>
+      <div class="dot">3</div>
+    </div>
+    <div class="road-line-v" style="height: 100%;"></div>
+  </div>
+</div>
+</body></html>

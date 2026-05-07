@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="sk"><head><meta charset="utf-8"><title>Components — Inputs</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body { margin: 0; padding: 24px; background: #fff; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.field { display: flex; flex-direction: column; }
+</style></head>
+<body>
+<div class="field">
+  <label class="label" for="meno">Meno a priezvisko</label>
+  <input class="input" id="meno" placeholder="Ján Novák" />
+</div>
+<div class="field">
+  <label class="label" for="tel">Telefón</label>
+  <input class="input" id="tel" placeholder="0905 123 456" />
+</div>
+<div class="field" style="grid-column: span 2;">
+  <label class="label" for="msg">Správa</label>
+  <textarea class="textarea" id="msg" rows="2" placeholder="Mám záujem o kurz skupiny B."></textarea>
+</div>
+</body></html>

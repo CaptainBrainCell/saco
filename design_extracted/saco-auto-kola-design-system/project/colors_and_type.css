@@ -1,0 +1,365 @@
+/* ============================================================
+   SACO Autoškola — Design Tokens
+   Single source of truth for colors, type, spacing, components.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  /* ---------- Color: surfaces ---------- */
+  --bg:               #FFFFFF;
+  --bg-soft:          #F5F5F1;
+  --bg-dark:          #0E1B2E;
+  --bg-dark-2:        #14253D;
+
+  /* ---------- Color: borders ---------- */
+  --border:           #E5E5DF;
+  --border-hover:     #D4D4CE;
+  --border-on-dark:   rgba(255, 255, 255, 0.08);
+
+  /* ---------- Color: text ---------- */
+  --text:             #0F0F14;
+  --text-muted:       #6B6B73;
+  --text-on-dark:     #F5F5F1;
+  --text-on-dark-mut: #8FA3BD;
+
+  /* ---------- Color: brand ---------- */
+  --primary:          #2563EB;
+  --primary-hover:    #1D4ED8;
+  --primary-light:    #DBEAFE;
+  --accent:           #F59E0B;
+  --accent-hover:     #D97706;
+  --success:          #059669;
+
+  /* ---------- Type: families ---------- */
+  --font-heading:     "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body:        "Inter", system-ui, sans-serif;
+
+  /* ---------- Type: scale ---------- */
+  --fs-hero:          clamp(3rem, 7vw, 5.5rem);   /* 48–88px */
+  --fs-h2:            clamp(2rem, 4vw, 3rem);     /* 32–48px */
+  --fs-h3:            1.5rem;                     /* 24px   */
+  --fs-h4:            1.25rem;                    /* 20px   */
+  --fs-body:          1.0625rem;                  /* 17px   */
+  --fs-small:         0.9375rem;                  /* 15px   */
+  --fs-eyebrow:       0.875rem;                   /* 14px   */
+
+  --lh-hero:          1.05;
+  --lh-h2:            1.15;
+  --lh-body:          1.65;
+
+  --tracking-hero:    -0.02em;
+  --tracking-eyebrow: 0.12em;
+
+  /* ---------- Spacing ---------- */
+  --container-max:    1200px;
+  --container-pad:    clamp(20px, 4vw, 40px);
+  --section-pad:      clamp(64px, 8vw, 120px);
+  --grid-gap:         32px;
+  --grid-gap-mobile:  24px;
+
+  /* ---------- Radii ---------- */
+  --radius-sm:        10px;   /* buttons, inputs */
+  --radius-md:        16px;   /* cards */
+  --radius-pill:      999px;
+
+  /* ---------- Motion ---------- */
+  --t-hover:          200ms ease-out;
+  --t-button:         150ms ease-out;
+  --t-fade:           500ms ease-out;
+}
+
+/* ============================================================
+   Base elements
+   ============================================================ */
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: inherit;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-hero); font-weight: 800; line-height: var(--lh-hero); letter-spacing: var(--tracking-hero); }
+h2 { font-size: var(--fs-h2);   font-weight: 700; line-height: var(--lh-h2); letter-spacing: -0.01em; }
+h3 { font-size: var(--fs-h3);   font-weight: 700; line-height: 1.25; }
+h4 { font-size: var(--fs-h4);   font-weight: 600; line-height: 1.35; }
+
+p  { margin: 0 0 1em; max-width: 62ch; text-wrap: pretty; }
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--t-button);
+}
+a:hover { color: var(--primary-hover); }
+
+/* tabular figures for stats / dates */
+.tnum, time, .stat-num { font-feature-settings: "tnum" 1, "lnum" 1; }
+
+/* ============================================================
+   Eyebrow + signature road-line
+   ============================================================ */
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--primary);
+  margin: 0 0 12px;
+}
+.eyebrow.on-dark { color: var(--accent); }
+
+.road-line-h {
+  display: block;
+  height: 3px;
+  background-image: linear-gradient(90deg, var(--accent) 60%, transparent 60%);
+  background-size: 24px 3px;
+  background-repeat: repeat-x;
+  border: 0;
+  margin: 0;
+}
+.road-line-h.short  { width: 40px; }
+.road-line-h.medium { width: 80px; }
+.road-line-h.long   { width: 120px; }
+.road-line-h.full   { width: 100%; }
+
+.road-line-v {
+  width: 3px;
+  background-image: linear-gradient(180deg, var(--accent) 60%, transparent 60%);
+  background-size: 3px 24px;
+  background-repeat: repeat-y;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--t-button), border-color var(--t-button), color var(--t-button);
+}
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--primary-hover); color: #fff; }
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--bg-dark);
+}
+.btn-accent:hover { background: var(--accent-hover); color: var(--bg-dark); }
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+.btn-ghost:hover { background: var(--bg-soft); }
+
+.btn-ghost.on-dark {
+  border-color: rgba(255, 255, 255, 0.30);
+  color: var(--text-on-dark);
+}
+.btn-ghost.on-dark:hover { background: rgba(255, 255, 255, 0.10); }
+
+/* ============================================================
+   Inputs
+   ============================================================ */
+.input, .textarea, .select {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 16px;        /* prevents iOS auto-zoom */
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  transition: border-color var(--t-button);
+  box-sizing: border-box;
+}
+.input:focus, .textarea:focus, .select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+.input::placeholder, .textarea::placeholder { color: var(--text-muted); }
+
+.label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0 0 6px;
+}
+
+/* ============================================================
+   Cards
+   ============================================================ */
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  transition: transform var(--t-hover), border-color var(--t-hover);
+}
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-hover);
+}
+
+.card.on-dark {
+  background: var(--bg-dark-2);
+  border-color: var(--border-on-dark);
+  color: var(--text-on-dark);
+}
+.card.on-dark:hover {
+  background: #182B47;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Course card — vertical primary stripe on the left */
+.card-course {
+  position: relative;
+  overflow: hidden;
+}
+.card-course::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--primary);
+  transition: all var(--t-hover);
+}
+.card-course:hover::before {
+  width: 100%;
+  height: 4px;
+  bottom: auto;
+}
+.card-course .course-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 640px) {
+  .card { padding: 24px; }
+}
+
+/* ============================================================
+   Pill tag
+   ============================================================ */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  line-height: 1.4;
+}
+.pill.success { background: #D1FAE5; color: var(--success); }
+.pill.accent  { background: #FEF3C7; color: #92400E; }
+
+/* "Nový kurz" pulsing badge — emoji allowed here only */
+.badge-new {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: var(--bg-dark);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+}
+.badge-new .pulse {
+  width: 8px; height: 8px;
+  border-radius: 999px;
+  background: var(--bg-dark);
+  position: relative;
+}
+.badge-new .pulse::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: 999px;
+  background: var(--bg-dark);
+  animation: saco-pulse 1.6s ease-out infinite;
+}
+@keyframes saco-pulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+/* ============================================================
+   Layout helpers
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+  box-sizing: border-box;
+}
+
+.section { padding-top: var(--section-pad); padding-bottom: var(--section-pad); }
+.section.bg-soft { background: var(--bg-soft); }
+.section.bg-dark { background: var(--bg-dark); color: var(--text-on-dark); }
+.section.bg-dark .text-muted { color: var(--text-on-dark-mut); }
+
+.text-muted { color: var(--text-muted); }
+
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

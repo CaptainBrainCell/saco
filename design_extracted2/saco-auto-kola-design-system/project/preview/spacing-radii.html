@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="sk"><head><meta charset="utf-8"><title>Spacing — Radii</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body { margin: 0; padding: 28px; background: #fff; display: flex; gap: 18px; align-items: flex-end; }
+.s { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.box { background: var(--bg-soft); border: 1px solid var(--border); }
+.b1 { width: 84px; height: 84px; border-radius: 10px; }
+.b2 { width: 84px; height: 84px; border-radius: 16px; }
+.b3 { width: 140px; height: 36px; border-radius: 999px; }
+.lab { font-family: var(--font-heading); font-weight: 700; font-size: 12px; color: var(--text); }
+.tok { font-family: var(--font-body); font-size: 11px; color: var(--text-muted); font-feature-settings: "tnum"; }
+</style></head>
+<body>
+<div class="s"><div class="box b1"></div><div class="lab">--radius-sm</div><div class="tok">10px · btn, input</div></div>
+<div class="s"><div class="box b2"></div><div class="lab">--radius-md</div><div class="tok">16px · card</div></div>
+<div class="s"><div class="box b3"></div><div class="lab">--radius-pill</div><div class="tok">999px · pill, dot</div></div>
+</body></html>

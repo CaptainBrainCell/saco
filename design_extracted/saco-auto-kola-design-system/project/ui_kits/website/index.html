@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SACO Autoškola — Žiar nad Hronom</title>
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <link rel="stylesheet" href="site.css">
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="Nav.jsx"></script>
+  <script type="text/babel" src="Hero.jsx"></script>
+  <script type="text/babel" src="StatStrip.jsx"></script>
+  <script type="text/babel" src="Courses.jsx"></script>
+  <script type="text/babel" src="Postup.jsx"></script>
+  <script type="text/babel" src="WhyUs.jsx"></script>
+  <script type="text/babel" src="Pricing.jsx"></script>
+  <script type="text/babel" src="Playground.jsx"></script>
+  <script type="text/babel" src="ContactCTA.jsx"></script>
+  <script type="text/babel" src="Footer.jsx"></script>
+  <script type="text/babel" src="NewCourseModal.jsx"></script>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    const NEW_COURSE = {
+      enabled: true,
+      type: "Skupina B",
+      title: "Otvárame nový kurz skupiny B",
+      date: "15. november 2025",
+      description: "Večerný kurz, 2× týždenne, kapacita 12 miest.",
+    };
+
+    function App() {
+      const [modalOpen, setModalOpen] = useState(false);
+      const [prefilledSubject, setPrefilledSubject] = useState("");
+      const seenKey = `saco_popup_seen_${NEW_COURSE.date}`;
+
+      // Auto-open once per visitor for this date
+      useEffect(() => {
+        if (!NEW_COURSE.enabled) return;
+        let seen = false;
+        try { seen = !!localStorage.getItem(seenKey); } catch (_) {}
+        if (!seen) {
+          const t = setTimeout(() => setModalOpen(true), 1200);
+          return () => clearTimeout(t);
+        }
+      }, [seenKey]);
+
+      const closeModal = () => {
+        setModalOpen(false);
+        try { localStorage.setItem(seenKey, "1"); } catch (_) {}
+      };
+
+      const onInterested = (course) => {
+        setPrefilledSubject(`Záujem o kurz: ${course.type} — ${course.date}`);
+        closeModal();
+        setTimeout(() => {
+          const el = document.getElementById("kontakt");
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 60);
+      };
+
+      // Section fade-in
+      useEffect(() => {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.querySelectorAll(".fade-in").forEach((el) => el.classList.add("in"));
+          return;
+        }
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        document.querySelectorAll(".fade-in").forEach((el) => io.observe(el));
+        return () => io.disconnect();
+      }, [modalOpen]);
+
+      return (
+        <>
+          <Nav onOpenModal={() => setModalOpen(true)} newCourseEnabled={NEW_COURSE.enabled} />
+          <main>
+            <Hero onSubmitInterest={({ kurz }) => setPrefilledSubject(`Záujem o kurz: Skupina ${kurz}`)} />
+            <div className="fade-in"><StatStrip /></div>
+            <div className="fade-in"><Courses /></div>
+            <div className="fade-in"><Postup /></div>
+            <div className="fade-in"><WhyUs /></div>
+            <div className="fade-in"><Pricing /></div>
+            <div className="fade-in"><Playground /></div>
+            <div className="fade-in">
+              <ContactCTA
+                prefilledSubject={prefilledSubject}
+                onSubjectConsumed={() => setPrefilledSubject("")}
+              />
+            </div>
+          </main>
+          <Footer />
+          <NewCourseModal
+            open={modalOpen}
+            course={NEW_COURSE}
+            onClose={closeModal}
+            onInterested={onInterested}
+          />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="sk"><head><meta charset="utf-8"><title>Components — Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body { margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; }
+.cell { padding: 28px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; min-height: 160px; }
+.cell.dark { background: var(--bg-dark); }
+.cell.light { background: #fff; }
+</style></head>
+<body>
+<div class="cell light">
+  <button class="btn btn-primary">Prihlás sa</button>
+  <button class="btn btn-ghost">Zisti viac</button>
+</div>
+<div class="cell dark">
+  <button class="btn btn-accent">Prihlás sa</button>
+  <button class="btn btn-ghost on-dark">Zisti viac</button>
+</div>
+</body></html>

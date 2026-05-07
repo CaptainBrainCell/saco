@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="sk"><head><meta charset="utf-8"><title>Colors — Text & Border</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body { margin: 0; padding: 24px; background: #fafaf7; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.col { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+.col.dark { background: #0E1B2E; border-color: rgba(255,255,255,.08); }
+.row { display: flex; align-items: center; gap: 12px; padding: 6px 0; }
+.dot { width: 22px; height: 22px; border-radius: 6px; border: 1px solid rgba(0,0,0,.05); flex: 0 0 auto; }
+.label { font-family: var(--font-heading); font-weight: 700; font-size: 12px; }
+.hex { font-family: var(--font-body); font-size: 11px; font-feature-settings: "tnum"; opacity: .65; margin-left: auto; }
+.col.dark .label { color: #F5F5F1; }
+.col.dark .hex { color: #8FA3BD; }
+</style></head>
+<body>
+<div class="col">
+  <div class="row"><div class="dot" style="background:#0F0F14"></div><div class="label">--text</div><div class="hex">#0F0F14</div></div>
+  <div class="row"><div class="dot" style="background:#6B6B73"></div><div class="label">--text-muted</div><div class="hex">#6B6B73</div></div>
+  <div class="row"><div class="dot" style="background:#E5E5DF"></div><div class="label">--border</div><div class="hex">#E5E5DF</div></div>
+  <div class="row"><div class="dot" style="background:#D4D4CE"></div><div class="label">--border-hover</div><div class="hex">#D4D4CE</div></div>
+</div>
+<div class="col dark">
+  <div class="row"><div class="dot" style="background:#F5F5F1"></div><div class="label">--text-on-dark</div><div class="hex">#F5F5F1</div></div>
+  <div class="row"><div class="dot" style="background:#8FA3BD"></div><div class="label">--text-on-dark-mut</div><div class="hex">#8FA3BD</div></div>
+  <div class="row"><div class="dot" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"></div><div class="label">--border-on-dark</div><div class="hex">rgba(255,255,255,.08)</div></div>
+  <div class="row"><div class="dot" style="background:#F59E0B"></div><div class="label">--accent (signal)</div><div class="hex">#F59E0B</div></div>
+</div>
+</body></html>
