@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ochrana osobných údajov (GDPR) — SACO Autoškola</title>
+<meta name="description" content="Informácie o spracúvaní osobných údajov v SACO Autoškole v Žiari nad Hronom podľa nariadenia GDPR.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E1B2E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#FFFFFF; --bg-soft:#F5F5F1; --bg-dark:#0E1B2E; --bg-dark-2:#14253D;
+  --border:#E5E5DF; --border-hover:#D4D4CE; --border-on-dark:rgba(255,255,255,.08);
+  --text:#0F0F14; --text-muted:#6B6B73;
+  --text-on-dark:#F5F5F1; --text-on-dark-mut:#8FA3BD;
+  --primary:#2563EB; --primary-hover:#1D4ED8; --primary-light:#DBEAFE;
+  --accent:#F59E0B; --accent-hover:#D97706;
+  --font-h:"Plus Jakarta Sans",system-ui,sans-serif;
+  --font-b:"Inter",system-ui,sans-serif;
+  --container:800px; --pad:clamp(20px,4vw,40px);
+  --r-sm:10px; --r-md:16px;
+  --t-btn:150ms ease-out;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--font-b);font-size:1.0625rem;line-height:1.65;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--primary);text-decoration:none;transition:color var(--t-btn)}
+a:hover{color:var(--primary-hover)}
+h1,h2,h3{font-family:var(--font-h);margin:0;color:inherit}
+h1{font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:8px}
+h2{font-weight:700;font-size:1.3rem;line-height:1.25;margin:2.4em 0 .6em;color:var(--text)}
+h3{font-weight:600;font-size:1.05rem;margin:1.6em 0 .4em}
+p{margin:0 0 1em}
+ul,ol{margin:0 0 1em;padding-left:1.4em}
+li{margin-bottom:.35em}
+.container{width:100%;max-width:var(--container);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+/* NAV */
+.nav{background:var(--bg-dark);padding:0}
+.nav-inner{display:flex;align-items:center;gap:16px;height:60px}
+.nav-logo{font-family:var(--font-h);font-weight:800;font-size:1.25rem;color:var(--text-on-dark);letter-spacing:-.01em;text-decoration:none}
+.nav-logo:hover{color:var(--accent)}
+.nav-back{margin-left:auto;font-family:var(--font-h);font-weight:600;font-size:.875rem;color:var(--text-on-dark-mut);display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:color var(--t-btn)}
+.nav-back:hover{color:var(--text-on-dark)}
+.nav-back svg{width:16px;height:16px;flex-shrink:0}
+
+/* HERO strip */
+.page-hero{background:var(--bg-dark);padding:48px 0 40px;border-bottom:1px solid var(--border-on-dark)}
+.eyebrow{font-family:var(--font-h);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin:0 0 14px;display:block}
+.page-hero p{color:var(--text-on-dark-mut);margin:10px 0 0;max-width:52ch;font-size:.95rem}
+.road-line-h{display:block;height:3px;border:0;margin:14px 0 0;background-image:linear-gradient(90deg,var(--accent) 60%,transparent 60%);background-size:24px 3px;background-repeat:repeat-x}
+
+/* CONTENT */
+.content{padding:56px 0 80px}
+.content p,.content li{color:var(--text-muted)}
+.content strong{color:var(--text)}
+.section-box{background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--r-md);padding:24px 28px;margin-bottom:28px}
+.section-box h2{margin-top:.5em}
+.pill-list{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.pill-list li{background:var(--primary-light);color:var(--primary);font-family:var(--font-h);font-weight:600;font-size:.8rem;padding:4px 12px;border-radius:999px;line-height:1.4}
+.contact-block{background:var(--bg-dark);color:var(--text-on-dark-mut);border-radius:var(--r-md);padding:24px 28px;font-size:.95rem}
+.contact-block strong{color:var(--text-on-dark)}
+.contact-block a{color:var(--accent)}
+.contact-block a:hover{color:var(--accent-hover)}
+
+/* FOOTER */
+.footer{background:var(--bg-dark);padding:28px 0;border-top:1px solid rgba(255,255,255,.06)}
+.footer-bottom{display:flex;flex-wrap:wrap;gap:10px;font-size:.85rem;color:var(--text-on-dark-mut)}
+.footer-bottom a{color:var(--text-on-dark-mut);text-decoration:underline;text-decoration-color:rgba(255,255,255,.2);text-underline-offset:3px}
+.footer-bottom a:hover{color:var(--text-on-dark)}
+.footer-bottom span:nth-child(even){opacity:.4}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">SACO</a>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 12L6 8l4-4"/></svg>
+      Späť na hlavnú stránku
+    </a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Právne informácie</span>
+    <h1>Ochrana osobných údajov</h1>
+    <hr class="road-line-h">
+    <p>Informácie o spracúvaní vašich osobných údajov podľa nariadenia GDPR (EÚ) 2016/679.</p>
+  </div>
+</div>
+
+<main class="content">
+  <div class="container">
+
+    <div class="section-box">
+      <h2>1. Prevádzkovateľ</h2>
+      <p><strong>SACO s.r.o.</strong><br>
+      Rudenkova 816/19, 965 01 Žiar nad Hronom<br>
+      IČO: 46008101<br>
+      E-mail: <a href="mailto:info@saco.sk">info@saco.sk</a><br>
+      Telefón: <a href="tel:+421905650761">0905 650 761</a></p>
+    </div>
+
+    <div class="section-box">
+      <h2>2. Aké údaje zbierame</h2>
+      <p>Pri vyplnení kontaktného formulára alebo prihlášky na kurz spracúvame nasledujúce osobné údaje:</p>
+      <ul class="pill-list">
+        <li>Meno a priezvisko</li>
+        <li>Telefónne číslo</li>
+        <li>E-mailová adresa</li>
+        <li>Záujem o kurz / téma správy</li>
+        <li>Obsah správy (poznámka)</li>
+      </ul>
+    </div>
+
+    <div class="section-box">
+      <h2>3. Účel a právny základ spracúvania</h2>
+      <ul>
+        <li><strong>Vybavenie dopytu alebo prihlášky</strong> — spracúvame vaše údaje, aby sme vás mohli kontaktovať ohľadne kurzu alebo odpovede na vašu otázku. Právny základ: <em>oprávnený záujem prevádzkovateľa</em> (čl. 6 ods. 1 písm. f) GDPR).</li>
+        <li><strong>Uzatvorenie zmluvy o výučbe</strong> — ak sa rozhodnete nastúpiť na kurz, vaše údaje slúžia na plnenie zmluvy. Právny základ: <em>plnenie zmluvy</em> (čl. 6 ods. 1 písm. b) GDPR).</li>
+      </ul>
+    </div>
+
+    <div class="section-box">
+      <h2>4. Doba uchovávania</h2>
+      <p>Údaje z kontaktného formulára uchovávame po dobu potrebnú na vybavenie vašej požiadavky, najdlhšie <strong>12 mesiacov</strong> od jej doručenia. Ak uzatvoríme zmluvu, údaje uchovávame po dobu trvania zmluvného vzťahu a následnú dobu stanovenú príslušnými právnymi predpismi (spravidla 5–10 rokov podľa zákona o účtovníctve).</p>
+    </div>
+
+    <div class="section-box">
+      <h2>5. Príjemcovia údajov</h2>
+      <p>Vaše osobné údaje nepredávame tretím stranám. Údaje môžu byť sprístupnené:</p>
+      <ul>
+        <li>poskytovateľom IT služieb a webhostingu (sprostredkovatelia viazaní mlčanlivosťou),</li>
+        <li>orgánom štátnej správy, ak to vyžaduje zákon.</li>
+      </ul>
+    </div>
+
+    <div class="section-box">
+      <h2>6. Vaše práva</h2>
+      <p>Podľa GDPR máte právo:</p>
+      <ul>
+        <li><strong>Na prístup</strong> — požiadať o informáciu, aké vaše údaje spracúvame.</li>
+        <li><strong>Na opravu</strong> — nechať opraviť nesprávne alebo neúplné údaje.</li>
+        <li><strong>Na výmaz</strong> — požiadať o vymazanie údajov, ak pominul účel ich spracúvania.</li>
+        <li><strong>Na obmedzenie spracúvania</strong> — požiadať o dočasné pozastavenie spracúvania.</li>
+        <li><strong>Na prenosnosť</strong> — získať vaše údaje v štruktúrovanom, strojovo čitateľnom formáte.</li>
+        <li><strong>Namietať</strong> — namietať proti spracúvaniu na základe oprávneného záujmu.</li>
+        <li><strong>Podať sťažnosť</strong> — obrátiť sa na Úrad na ochranu osobných údajov SR (<a href="https://www.uoou.sk" rel="noopener" target="_blank">uoou.sk</a>).</li>
+      </ul>
+      <p>Žiadosti zasielajte e-mailom na <a href="mailto:info@saco.sk">info@saco.sk</a> alebo poštou na adresu prevádzkovateľa. Na vašu žiadosť odpovieme do 30 dní.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>7. Cookies</h2>
+      <p>Táto webová stránka nepoužíva analytické ani reklamné cookies. Používajú sa iba technické cookies nevyhnutné pre správne fungovanie stránky, ktoré nevyžadujú súhlas.</p>
+    </div>
+
+    <div class="contact-block">
+      <strong>Kontakt na zodpovednú osobu</strong><br>
+      Ak máte otázky týkajúce sa spracúvania vašich osobných údajov, kontaktujte nás na
+      <a href="mailto:info@saco.sk">info@saco.sk</a> alebo telefonicky na
+      <a href="tel:+421905650761">0905 650 761</a>.
+    </div>
+
+    <p style="color:var(--text-muted);font-size:.85rem;margin-top:32px">Posledná aktualizácia: máj 2026</p>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 SACO s.r.o.</span>
+      <span aria-hidden="true">·</span>
+      <span class="tnum">IČO 46008101</span>
+      <span aria-hidden="true">·</span>
+      <a href="gdpr.html">Ochrana osobných údajov</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
