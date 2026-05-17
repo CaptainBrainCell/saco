@@ -834,13 +834,13 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
   $("#modalDesc").textContent=NEW_COURSE.description;
   if(NEW_COURSE.enabled && no){no.hidden=false;}
   function open(){if(!NEW_COURSE.enabled)return;lastFocus=document.activeElement;bd.classList.add("is-open");bd.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";setTimeout(function(){mc&&mc.focus();},50);}
-  function close(){bd.classList.remove("is-open");bd.setAttribute("aria-hidden","true");document.body.style.overflow="";try{localStorage.setItem(seenKey,"1");}catch(_){};if(lastFocus&&lastFocus.focus){lastFocus.focus();}}
+  function close(){bd.classList.remove("is-open");bd.setAttribute("aria-hidden","true");document.body.style.overflow="";if(lastFocus&&lastFocus.focus){lastFocus.focus();}}
   function interested(){var s=$("#cf-subject");if(s){s.value="Záujem o kurz: "+NEW_COURSE.type+" — "+NEW_COURSE.date;}close();setTimeout(function(){var t=document.getElementById("kontakt");if(t)t.scrollIntoView({behavior:"smooth",block:"start"});setTimeout(function(){var n=$("#cf-meno");n&&n.focus();},700);},60);}
   on(mc,"click",close);on(ml,"click",close);on(mi,"click",interested);
   on(bd,"click",function(e){if(e.target===bd)close();});
   on(document,"keydown",function(e){if(e.key==="Escape" && bd.classList.contains("is-open"))close();});
   on(no,"click",open);
-  if(NEW_COURSE.enabled){var seen=false;try{seen=!!localStorage.getItem(seenKey);}catch(_){};if(!seen){setTimeout(open,1500);}}
+  if(NEW_COURSE.enabled){setTimeout(open,1500);}
 })();
 </script>
 </body>
