@@ -108,8 +108,9 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.fade-in{opacity:1!important}}
 .nav{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--border)}
 .nav-inner{display:flex;align-items:center;gap:32px;height:76px}
-.nav-logo{flex-shrink:0;display:inline-flex}
-.nav-logo svg{height:46px;width:auto;display:block}
+.nav-logo{flex-shrink:0;display:inline-flex;align-items:center}
+.nav-logo img{height:44px;width:auto;display:block}
+.logo-on-dark{background:#fff;padding:5px 14px;border-radius:8px}
 .nav-links{display:flex;gap:28px;flex:1;justify-content:center}
 .nav-links a{font-family:var(--font-b);font-weight:500;font-size:.95rem;color:var(--text)}
 .nav-links a:hover{color:var(--primary)}
@@ -320,10 +321,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 <header class="nav" id="nav">
   <div class="container nav-inner">
     <a href="#top" class="nav-logo" aria-label="SACO Autoškola — domov">
-      <svg viewBox="0 0 54 26" width="54" height="22" role="img" aria-label="SACO">
-        <text x="0" y="16" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="800" font-size="12" letter-spacing="-0.01em" fill="#0F0F14">SACO</text>
-        <g fill="#F59E0B"><rect x="0" y="22" width="7" height="2"></rect><rect x="11" y="22" width="7" height="2"></rect><rect x="22" y="22" width="7" height="2"></rect></g>
-      </svg>
+      <img src="saco_logo.png" alt="SACO Autoškola">
     </a>
     <nav class="nav-links" aria-label="Hlavná navigácia">
       <a href="#kurzy">Kurzy</a>
@@ -720,10 +718,9 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <svg viewBox="0 0 54 26" width="54" height="30" role="img" aria-label="SACO">
-          <text x="0" y="14" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="800" font-size="18" letter-spacing="-0.01em" fill="#F5F5F1">SACO</text>
-          <g fill="#F59E0B"><rect x="0" y="22" width="7" height="2"></rect><rect x="11" y="22" width="7" height="2"></rect><rect x="22" y="22" width="7" height="2"></rect></g>
-        </svg>
+        <a href="#top" class="nav-logo logo-on-dark" aria-label="SACO Autoškola — na začiatok">
+          <img src="saco_logo.png" alt="SACO Autoškola">
+        </a>
         <p class="footer-blurb">Rodinná autoškola v Žiari nad Hronom. Učíme jazdiť od roku 2003.</p>
       </div>
       <div>
